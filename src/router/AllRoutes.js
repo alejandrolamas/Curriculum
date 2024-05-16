@@ -12,7 +12,7 @@ const AllRoutes = () => {
         <ScrollTopBehaviour />
         <Routes>
           <Route path="/" element={<HomeDark />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </ContextProvider>
     </>
