@@ -16,7 +16,7 @@ const NotFound = () => {
             404!
           </h1>
           <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
-            Sin premio, sigue jugando.
+            Sin premio, suerte en la próxima.
           </p>
 
           <div
