@@ -12,13 +12,7 @@ const educationContent = [
     degree: "Master en Marketing Digital y Comercio Electrónico",
     institute: "EAE BUSINESS SCHOOL",
     details: ``,
-  },
-  {
-    year: "2020",
-    degree: "Master en ciberseguridad ",
-    institute: "IMF + DELOITTE",
-    details: `Inacabado`,
-  },
+  }
 ];
 
 const Education = () => {
