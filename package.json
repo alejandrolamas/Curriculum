@@ -3,6 +3,7 @@
   "homepage": "https://alejandrolamas.es",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@testing-library/jest-dom": "^5.11.4",
