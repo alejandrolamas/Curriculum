@@ -1,10 +1,5 @@
 import { useState } from "react";
 import img1 from "../assets/img/blog/blog-post-1.jpg";
-import img2 from "../assets/img/blog/blog-post-2.jpg";
-import img3 from "../assets/img/blog/blog-post-3.jpg";
-import img4 from "../assets/img/blog/blog-post-4.jpg";
-import img5 from "../assets/img/blog/blog-post-5.jpg";
-import img6 from "../assets/img/blog/blog-post-6.jpg";
 
 const AllBlogData = () => {
   const blogsData = [
