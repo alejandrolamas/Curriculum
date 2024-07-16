@@ -1,5 +1,5 @@
 import { useState } from "react";
-import img1 from "../assets/img/blog/blog-post-1.jpg";
+import img1 from "../assets/img/blog/img1.png";
 
 const AllBlogData = () => {
   const blogsData = [
