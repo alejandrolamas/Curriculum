@@ -64,9 +64,9 @@ const Blog = () => {
                   <article>
                     <div className="title-section text-left text-sm-center">
                       <h1>
-                        Post <span>Details</span>
+                        <span>Detalles de las publicaciones</span>
                       </h1>
-                      <span className="title-bg">posts</span>
+                      <span className="title-bg">Publicaciones</span>
                     </div>
                     {/* Meta Starts */}
 
