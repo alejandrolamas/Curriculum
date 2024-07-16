@@ -91,16 +91,27 @@ const Blog = () => {
                       alt="Blog"
                     />
                     <div className="blog-excerpt open-sans-font pb-5">
-                      <p>{singleData?.description1}</p>
                       <div className="quotebox">
                         <div className="icon">
                           <img src={blogQuote} alt="blog quote" />
                         </div>
-                        <p>{singleData?.description2}</p>
+                        <p>{singleData?.description1}</p>
                       </div>
+                      <p>{singleData?.description2}</p>
                       <p>{singleData?.description3}</p>
                       <p>{singleData?.description4}</p>
+                      <p>{singleData?.description5}</p>
+                      <p>{singleData?.description6}</p>
+                      <p>{singleData?.description7}</p>
+                      <p>{singleData?.description8}</p>
+                      <p>{singleData?.description9}</p>
+                      <p>{singleData?.description10}</p>
+                      <p>{singleData?.description11}</p>
+                      <p>{singleData?.description12}</p>
+                      <p>{singleData?.description13}</p>
+                      <p>{singleData?.description14}</p>
                     </div>
+
                     {/* Article Content Ends */}
                   </article>
                   {/* Article Ends */}
