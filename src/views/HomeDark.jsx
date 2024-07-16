@@ -14,7 +14,7 @@ const menuItem = [
   { icon: "fa-user", menuName: "Currículum" },
   { icon: "fa-briefcase", menuName: "Portfolio" },
   { icon: "fa-envelope-open", menuName: "Contacto" },
- // { icon: "fa-comments", menuName: "Blog" },
+  { icon: "fa-comments", menuName: "Blog" },
 ];
 
 const HomeDark = () => {
