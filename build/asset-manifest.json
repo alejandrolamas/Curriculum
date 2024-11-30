@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f53df097.css",
-    "main.js": "/static/js/main.3012f865.js",
+    "main.css": "/static/css/main.336110d8.css",
+    "main.js": "/static/js/main.58598399.js",
     "static/js/206.83b929be.chunk.js": "/static/js/206.83b929be.chunk.js",
     "static/media/tendencias-diseno-web-2025.jpg": "/static/media/tendencias-diseno-web-2025.cab3d1e4082b9eae398f.jpg",
     "static/media/fundamentos-basicos-de-la-programacion.jpg": "/static/media/fundamentos-basicos-de-la-programacion.b9e437ac369df9dd6cfa.jpg",
@@ -32,7 +32,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.f53df097.css",
-    "static/js/main.3012f865.js"
+    "static/css/main.336110d8.css",
+    "static/js/main.58598399.js"
   ]
 }

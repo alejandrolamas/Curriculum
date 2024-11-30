@@ -76,33 +76,11 @@ const Blog = () => {
             }}
           ></div>
           {/* Título y subtítulo encima de la imagen */}
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "#fff",
-              zIndex: 2,
-            }}
-          >
-            <h1
-              style={{
-                fontSize: "32px",
-                fontWeight: "bold",
-                margin: 0,
-              }}
-            >
+          <div className="blog-title-container">
+            <h1>
               {blog.title}
             </h1>
-            <p
-              style={{
-                fontSize: "16px",
-                marginTop: "10px",
-                fontWeight: "normal",
-              }}
-            >
+            <p>
               {blog.commentor} - {blog.date}
             </p>
           </div>
