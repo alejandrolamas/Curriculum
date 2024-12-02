@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UseData from "../../Hooks/UseData";
 import CodeBlock from "../../components/CodeBlock"; // Importar el componente CodeBlock
+import HeaderMenu from "../HeaderMenu";
 
 const Blog = () => {
   const { blogsData } = UseData();
@@ -23,34 +24,7 @@ const Blog = () => {
 
     return (
       <div className="yellow">
-        <div className="header">
-          {/* Icono de casita para volver al inicio */}
-          <div
-            className="icon-box"
-            role="tab"
-            onClick={() => navigate("/")}
-            style={{
-              backgroundColor: "#f89200",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              width: "60px",
-              height: "60px",
-              borderRadius: "50px",
-              margin: "20px auto",
-            }}
-          >
-            <i
-              className="fa fa-home"
-              style={{
-                fontSize: "24px",
-                color: "#fff",
-              }}
-            ></i>
-          </div>
-        </div>
+        <HeaderMenu activeTab={4} />
         {/* Contenedor de la imagen, título y subtítulo */}
         <div className="image-container" style={{ position: "relative", height: "40vh", width: "100%" }}>
           {/* Imagen con estilo actualizado */}
@@ -86,7 +60,7 @@ const Blog = () => {
           </div>
         </div>
         {/* Contenido del blog */}
-        <div className="container mt-4" data-aos="fade-up" data-aos-duration="1200" style={{ padding: "0 0 100px 0" }}>
+        <div className="container mt-4" data-aos="fade-up" data-aos-duration="1200" style={{ paddingBottom: "100px" }}>
           <div className="row">
             <div className="col-12">
               {blog.content.map((section, index) => (
@@ -102,7 +76,6 @@ const Blog = () => {
                   {section.code && <CodeBlock code={section.code} />}
                 </div>
               ))}
-              <a href={"/"}>Volver</a>
             </div>
           </div>
         </div>
@@ -114,7 +87,7 @@ const Blog = () => {
   return (
     <div className="row">
       {blogsData
-        .sort((a, b) => new Date(b.date) - new Date(a.date)) // Ordenar por fecha, más reciente primero
+        .sort((a, b) => b.id - a.id) // Ordenar por fecha, más reciente primero
         .map((item) => (
           <div key={item.id} className="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
             <article

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Hero from "../components/hero/Hero";
 import Index from "../components/about/index";
@@ -8,6 +8,7 @@ import Contact from "../components/Contact";
 import Social from "../components/Social";
 import SwitchDark from "../components/switch/SwitchDark";
 import Blog from "../components/blog/Blog";
+import { useLocation } from "react-router-dom";
 
 const menuItem = [
   { icon: "fa-home", menuName: "Inicio" },
@@ -18,12 +19,42 @@ const menuItem = [
 ];
 
 const HomeDark = () => {
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(0);
+
+  // Cambiar la pestaña activa según el hash en la URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    const tabIndex = {
+      "#inicio": 0,
+      "#curriculum": 1,
+      "#portfolio": 2,
+      "#contacto": 3,
+      "#blog": 4,
+    }[hash];
+    if (tabIndex !== undefined) setActiveTab(tabIndex);
+  }, []);
+
+  const handleTabChange = (index) => {
+    setActiveTab(index);
+    const hashList = ["#inicio", "#curriculum", "#portfolio", "#contacto", "#blog"];
+    window.history.replaceState(null, null, hashList[index]); // Cambia el hash en la URL
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get("tab");
+    if (tab === "blog") {
+      setActiveTab(4); // Cambia al índice de la pestaña del Blog
+    }
+  }, [location]);
+  
   document.querySelector("body").classList.remove("rtl");
 
   return (
     <div className="yellow">
       <SwitchDark />
-      <Tabs>
+      <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
         <div className="header">
           <TabList className="icon-menu revealator-slideup revealator-once revealator-delay1">
             {menuItem.map((item, i) => (
