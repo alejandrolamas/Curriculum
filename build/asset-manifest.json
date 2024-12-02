@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.336110d8.css",
-    "main.js": "/static/js/main.58598399.js",
+    "main.css": "/static/css/main.73592194.css",
+    "main.js": "/static/js/main.20e09498.js",
     "static/js/206.83b929be.chunk.js": "/static/js/206.83b929be.chunk.js",
     "static/media/tendencias-diseno-web-2025.jpg": "/static/media/tendencias-diseno-web-2025.cab3d1e4082b9eae398f.jpg",
     "static/media/fundamentos-basicos-de-la-programacion.jpg": "/static/media/fundamentos-basicos-de-la-programacion.b9e437ac369df9dd6cfa.jpg",
-    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.6878d55e3615ccf40c38.svg",
     "static/media/guia-iniciarse-wordpress-elementor.jpg": "/static/media/guia-iniciarse-wordpress-elementor.ab0099cc101f9efcd89d.jpg",
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
@@ -22,17 +22,18 @@
     "static/media/juan-vidal.jpg": "/static/media/juan-vidal.3006fb30a8718af1873c.jpg",
     "static/media/miguel-rios.jpg": "/static/media/miguel-rios.610755ec90c9eb4bee6a.jpg",
     "static/media/levanova.jpg": "/static/media/levanova.b955657f361c896ad92b.jpg",
+    "static/media/tailwind.png": "/static/media/tailwind.1c537142ece315d3d691.png",
     "static/media/basico.jpg": "/static/media/basico.5f076ccd00e17b8a5228.jpg",
     "static/media/img-mobile.jpg": "/static/media/img-mobile.ba9e54084f5aeff82605.jpg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/cancel.svg": "/static/media/cancel.5bec4f69e1bbfff50fdfacd4eaff052a.svg",
+    "static/media/cancel.svg": "/static/media/cancel.17825c74c3c6b6934429010ee3f913fd.svg",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.336110d8.css",
-    "static/js/main.58598399.js"
+    "static/css/main.73592194.css",
+    "static/js/main.20e09498.js"
   ]
 }

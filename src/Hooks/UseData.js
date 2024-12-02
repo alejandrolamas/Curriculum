@@ -2,6 +2,7 @@ import { useState } from "react";
 import img1 from "../assets/img/blog/fundamentos-basicos-de-la-programacion.jpg";
 import img2 from "../assets/img/blog/tendencias-diseno-web-2025.jpg";
 import img3 from "../assets/img/blog/guia-iniciarse-wordpress-elementor.jpg";
+import img4 from "../assets/img/blog/tailwind.png";
 
 const blogsData = [
   {
@@ -292,6 +293,118 @@ const blogsData = [
         text: [
           "Una vez que tu sitio está en marcha, hay varios aspectos a considerar para mejorar su rendimiento y apariencia. Estos consejos y trucos pueden ayudarte a maximizar la efectividad de tu web.",
           "Optimización de la web para motores de búsqueda: La optimización para motores de búsqueda (SEO) es esencial para que tu sitio web sea encontrado en internet.",
+        ],
+      },
+    ],
+  }, {
+    id: 4,
+    img: img4, 
+    slug: "que-es-tailwind-css-guia-principiantes",
+    title: "¿Qué es Tailwind CSS? Una guía para principiantes",
+    commentor: "Alejandro Lamas",
+    date: "2 Diciembre 2024",
+    tag: "Tailwind CSS, desarrollo web, frameworks CSS",
+    description1:
+      "Explora cómo Tailwind CSS está revolucionando el diseño web con su enfoque utility-first, permitiéndote crear interfaces rápidas, modernas y personalizables.",
+    description2:
+      "Aprende a aprovechar al máximo Tailwind CSS para construir páginas web sin escribir CSS desde cero, todo mientras conservas el control total de tu diseño.",
+    description3:
+      "Una guía completa para principiantes que te introducirá a las ventajas y características clave de Tailwind CSS, con ejemplos prácticos y consejos.",
+    content: [
+      {
+        sectionTitle: "¿Qué es Tailwind CSS?",
+        text: [
+          "Tailwind CSS es un framework CSS que utiliza un enfoque utility-first, proporcionando clases de utilidad predefinidas que se pueden aplicar directamente en tu HTML para construir interfaces de usuario de forma rápida y eficiente.",
+          "A diferencia de frameworks como Bootstrap o Foundation, Tailwind no incluye componentes predefinidos como botones, tablas o menús desplegables. En su lugar, ofrece una serie de pequeñas clases reutilizables que permiten un control preciso sobre el diseño.",
+          "Por ejemplo, si quieres crear un botón con un fondo azul, texto blanco y bordes redondeados, puedes usar estas clases:",
+        ],
+        code: `
+<button class="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-700">
+  Haz clic aquí
+</button>
+        `,
+      },
+      {
+        sectionTitle: "Filosofía de Tailwind CSS",
+        text: [
+          "La filosofía principal detrás de Tailwind CSS es su enfoque modular y altamente personalizable. En lugar de sobrescribir estilos predeterminados o depender de una hoja de estilos global, Tailwind te permite construir interfaces con clases de utilidad pequeñas y específicas.",
+          "Este enfoque fomenta la consistencia, ya que puedes combinar las mismas clases en diferentes partes de tu proyecto para lograr resultados coherentes. También mejora la legibilidad del código, ya que los estilos están directamente visibles en el HTML.",
+          "Por ejemplo, en lugar de escribir CSS personalizado, puedes usar clases como estas:",
+        ],
+        code: `
+<div class="flex items-center justify-center h-screen bg-gray-100">
+  <h1 class="text-4xl font-bold text-gray-800">¡Hola, Tailwind!</h1>
+</div>
+        `,
+      },
+      {
+        sectionTitle: "Ventajas de usar Tailwind CSS",
+        text: [
+          "Tailwind CSS tiene varias ventajas que lo convierten en una herramienta poderosa para desarrolladores:",
+          "- **Alta personalización:** Tailwind permite configurar prácticamente todo, desde colores hasta tamaños y espaciado, a través de su archivo de configuración.",
+          "- **Desarrollo rápido:** Al usar clases de utilidad predefinidas, puedes construir prototipos y diseños finales en menos tiempo.",
+          "- **Responsive design integrado:** Tailwind incluye utilidades específicas para dispositivos móviles y pantallas grandes sin necesidad de escribir media queries personalizadas.",
+          "- **Consistencia:** Gracias a su enfoque utility-first, es más fácil mantener un diseño consistente en todo el proyecto.",
+        ],
+      },
+      {
+        sectionTitle: "Clases de utilidad comunes",
+        text: [
+          "Tailwind CSS proporciona cientos de clases para abordar una amplia variedad de necesidades de diseño. Algunas de las más utilizadas incluyen:",
+          "- `bg-red-500`: Aplica un fondo rojo.",
+          "- `text-xl`: Establece el tamaño de texto en extra grande.",
+          "- `p-4`: Agrega un padding de 1rem (4 unidades de espaciado).",
+          "- `flex`: Aplica Flexbox al contenedor.",
+          "- `justify-between`: Distribuye los elementos con espacio entre ellos.",
+        ],
+        code: `
+<div class="flex justify-between bg-gray-800 text-white p-4">
+  <span>Inicio</span>
+  <span>Contacto</span>
+</div>
+        `,
+      },
+      {
+        sectionTitle: "Integración con herramientas de desarrollo",
+        text: [
+          "Tailwind CSS se integra fácilmente con editores como Visual Studio Code mediante la extensión Tailwind CSS IntelliSense. Esta herramienta proporciona autocompletado de clases, consejos y resaltado de errores directamente en tu editor.",
+          "Además, su archivo de configuración (`tailwind.config.js`) permite personalizar colores, fuentes, tamaños de pantalla y más, adaptándolo a las necesidades específicas de tu proyecto.",
+          "Por ejemplo, así es como puedes agregar nuevos colores personalizados a tu proyecto:",
+        ],
+        code: `
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        brandBlue: '#1E40AF',
+        brandYellow: '#F59E0B',
+      },
+    },
+  },
+};
+        `,
+      },
+      {
+        sectionTitle: "Cómo empezar con Tailwind CSS",
+        text: [
+          "Existen varias maneras de integrar Tailwind CSS en tu proyecto, dependiendo de tus necesidades. Una de las formas más sencillas es usar un CDN, ideal para proyectos pequeños o pruebas rápidas:",
+        ],
+        code: `
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        `,
+        textAfterCode: [
+          "Para proyectos más avanzados, puedes instalar Tailwind CSS usando npm y configurarlo para un control total sobre los estilos:",
+        ],
+        codeAfterText: `
+npm install tailwindcss postcss autoprefixer
+npx tailwindcss init
+        `,
+      },
+      {
+        sectionTitle: "Conclusión",
+        text: [
+          "Tailwind CSS es un framework revolucionario que ha cambiado la forma en que diseñamos interfaces de usuario. Su enfoque utility-first ofrece flexibilidad, velocidad y personalización, haciéndolo ideal tanto para principiantes como para desarrolladores experimentados.",
+          "Si buscas una manera eficiente de construir sitios web modernos, Tailwind CSS es una excelente herramienta para agregar a tu flujo de trabajo.",
         ],
       },
     ],
