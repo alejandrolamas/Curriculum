@@ -16,7 +16,7 @@ const achievementsContent = [
   { title: "2", subTitle1: "Campañas", subTitle2: "Twitter" },
   { title: "2", subTitle1: "Campañas", subTitle2: "LinkedIn" },
   { title: "4", subTitle1: "Diseños", subTitle2: "Corporativos" },
-  { title: "12", subTitle1: "Servidores", subTitle2: "Desplegados" },
+  { title: "15", subTitle1: "Servidores", subTitle2: "Desplegados" },
 ];
 
 const Achievements = () => {

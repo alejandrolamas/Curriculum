@@ -38,7 +38,7 @@ const PersonalInfo = () => {
       <h3 className="text-uppercase custom-title mb-0 ft-wt-600">OBJETIVOS</h3>
       <p style={{marginBottom: '30px'}}>Mi objetivo profesional, tras haber estado durante mi última etapa laboral como autónomo dirigiendo no solo mi propia empresa, 
         sino gestionando proyectos con personal a cargo, es la de formar parte de un equipo multidisciplinar en el que pueda aportar mis 
-        conocimientos y experiencia a fin de lograr los objetivos de la empresa.</p>
+        conocimientos y experiencia a fin de lograr los objetivos de la empresa, así como seguir aprendiendo y creciendo como profesional y como persona.</p>
       <h3 className="text-uppercase custom-title mb-0 ft-wt-600">APTITUDES</h3>
       <ul className=" list-unstyled open-sans-font">
         {aptitude.map((val, i) => (

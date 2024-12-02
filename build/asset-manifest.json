@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.73592194.css",
-    "main.js": "/static/js/main.97e2ff5c.js",
+    "main.js": "/static/js/main.8c173854.js",
     "static/js/206.83b929be.chunk.js": "/static/js/206.83b929be.chunk.js",
     "static/media/tendencias-diseno-web-2025.jpg": "/static/media/tendencias-diseno-web-2025.cab3d1e4082b9eae398f.jpg",
     "static/media/ofuscacion-de-enlaces-posicionamiento-seo.jpg": "/static/media/ofuscacion-de-enlaces-posicionamiento-seo.bb67361adc7df34b0566.jpg",
@@ -36,6 +36,6 @@
   },
   "entrypoints": [
     "static/css/main.73592194.css",
-    "static/js/main.97e2ff5c.js"
+    "static/js/main.8c173854.js"
   ]
 }
