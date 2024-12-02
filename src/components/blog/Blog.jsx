@@ -60,18 +60,43 @@ const Blog = () => {
           </div>
         </div>
         {/* Contenido del blog */}
-        <div className="container mt-4" data-aos="fade-up" data-aos-duration="1200" style={{ paddingBottom: "100px" }}>
+        <div
+          className="container mt-4"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+          style={{ paddingBottom: "100px" }}
+        >
           <div className="row">
             <div className="col-12">
               {blog.content.map((section, index) => (
                 <div key={index} className="blog-section mb-4">
-                  <h2 style={{color:"white", textAlign:"left", paddingTop:"20px", fontSize:"24px"}}>{section.sectionTitle}</h2>
+                  <h2
+                    style={{
+                      color: "white",
+                      textAlign: "left",
+                      paddingTop: "20px",
+                      fontSize: "24px",
+                    }}
+                  >
+                    {section.sectionTitle}
+                  </h2>
                   {Array.isArray(section.text) ? (
                     section.text.map((paragraph, pIndex) => (
-                      <p key={pIndex} style={{color:"#B6B6B6"}}>{paragraph}</p>
+                      <p key={pIndex} style={{ color: "#B6B6B6" }}>
+                        {paragraph}
+                      </p>
                     ))
                   ) : (
-                    <p style={{color:"#B6B6B6"}}>{section.text}</p>
+                    <p style={{ color: "#B6B6B6" }}>{section.text}</p>
+                  )}
+                  {section.list && (
+                    <ul style={{ color: "#B6B6B6", paddingLeft: "20px" }}>
+                      {section.list.map((item, listIndex) => (
+                        <li key={listIndex} style={{ marginBottom: "10px" }}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   )}
                   {section.code && <CodeBlock code={section.code} />}
                 </div>
