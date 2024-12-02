@@ -58,31 +58,9 @@ const index = () => {
 
         <hr className="separator" />
 
-        {/* Skills Starts */}
-        <div className="row">
-          <div className="col-12">
-            <h3 className="text-uppercase pb-4 pb-sm-5 mb-3 mb-sm-0 text-left text-sm-center custom-title ft-wt-600">
-              Mis habilidades
-            </h3>
-          </div>
-          <Skills />
-        </div>
-        {/* Skills Ends */}
-
-        <hr className="separator mt-1" />
-
+        
         {/* Experience & Education Starts */}
         <div className="row">
-          <div className="col-12">
-            <h3 className="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-600">
-              Experiencia
-            </h3>
-          </div>
-          <div className="col-lg-6 m-15px-tb">
-            <div className="resume-box">
-              <Experience />
-            </div>
-          </div>
           <div className="col-12">
             <h3 className="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-600">
               Educación
@@ -93,8 +71,32 @@ const index = () => {
               <Education />
             </div>
           </div>
+          <div className="col-12">
+            <h3 className="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-600">
+              Experiencia
+            </h3>
+          </div>
+          <div className="col-lg-6 m-15px-tb">
+            <div className="resume-box">
+              <Experience />
+            </div>
+          </div>
         </div>
         {/*  Experience & Education Ends */}
+
+        <hr className="separator mt-1" />
+
+        {/* Skills Starts */}
+        <div className="row">
+          <div className="col-12">
+            <h3 className="text-uppercase pb-4 pb-sm-5 mb-3 mb-sm-0 text-left text-sm-center custom-title ft-wt-600">
+              Mis habilidades
+            </h3>
+          </div>
+          <Skills />
+        </div>
+        {/* Skills Ends */}
+        
       </div>
     </section>
   );
