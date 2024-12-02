@@ -4,6 +4,23 @@ import UseData from "../../Hooks/UseData";
 import CodeBlock from "../../components/CodeBlock"; // Importar el componente CodeBlock
 import HeaderMenu from "../HeaderMenu";
 
+// Función para procesar texto y convertir **texto** en <strong>texto</strong>
+const parseTextWithBold = (text) => {
+  if (!text) return null;
+
+  // Reemplaza **texto** con <strong>texto</strong>
+  const parts = text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index}>{part.slice(2, -2)}</strong>
+      ); // Elimina los "**" y envuelve en <strong>
+    }
+    return part; // Devuelve el texto normal
+  });
+
+  return <>{parts}</>;
+};
+
 const Blog = () => {
   const { blogsData } = UseData();
   const { slug } = useParams(); // Obtener el slug de la URL
@@ -83,17 +100,19 @@ const Blog = () => {
                   {Array.isArray(section.text) ? (
                     section.text.map((paragraph, pIndex) => (
                       <p key={pIndex} style={{ color: "#B6B6B6" }}>
-                        {paragraph}
+                        {parseTextWithBold(paragraph)}
                       </p>
                     ))
                   ) : (
-                    <p style={{ color: "#B6B6B6" }}>{section.text}</p>
+                    <p style={{ color: "#B6B6B6" }}>
+                      {parseTextWithBold(section.text)}
+                    </p>
                   )}
                   {section.list && (
                     <ul style={{ color: "#B6B6B6", paddingLeft: "20px" }}>
                       {section.list.map((item, listIndex) => (
                         <li key={listIndex} style={{ marginBottom: "10px" }}>
-                          {item}
+                          {parseTextWithBold(item)}
                         </li>
                       ))}
                     </ul>
