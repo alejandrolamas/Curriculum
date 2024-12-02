@@ -6,7 +6,6 @@ import Address from "../components/Address";
 import Portfolio from "../components/portfolio/Portfolio";
 import Contact from "../components/Contact";
 import Social from "../components/Social";
-import SwitchDark from "../components/switch/SwitchDark";
 import Blog from "../components/blog/Blog";
 import { useLocation } from "react-router-dom";
 
@@ -53,7 +52,6 @@ const HomeDark = () => {
 
   return (
     <div className="yellow">
-      <SwitchDark />
       <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
         <div className="header">
           <TabList className="icon-menu revealator-slideup revealator-once revealator-delay1">
