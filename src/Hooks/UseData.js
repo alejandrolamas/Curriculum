@@ -486,7 +486,7 @@ define('CONCATENATE_SCRIPTS', false);
     img: img6,
     slug: "ofuscacion-de-enlaces-ventajas-e-inconvenientes-en-posicionamiento-seo",
     title: "Ofuscación de enlaces: ventajas e inconvenientes en posicionamiento SEO",
-    commentor: "María López",
+    commentor: "Alejandro Lamas",
     date: "2 Diciembre 2024",
     tag: "SEO, ofuscación de enlaces, posicionamiento web",
     description1:
