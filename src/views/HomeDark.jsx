@@ -38,6 +38,7 @@ const HomeDark = () => {
     setActiveTab(index);
     const hashList = ["#inicio", "#curriculum", "#portfolio", "#contacto", "#blog"];
     window.history.replaceState(null, null, hashList[index]); // Cambia el hash en la URL
+    window.scrollTo(0, 0); // Forzar el scroll al inicio de la págin
   };
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const HomeDark = () => {
 
   return (
     <div className="yellow">
-      <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
+      <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
         <div className="header">
           <TabList className="icon-menu revealator-slideup revealator-once revealator-delay1">
             {menuItem.map((item, i) => (
