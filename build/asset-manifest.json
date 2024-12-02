@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.73592194.css",
-    "main.js": "/static/js/main.89774796.js",
+    "main.js": "/static/js/main.d05e09d5.js",
     "static/js/206.83b929be.chunk.js": "/static/js/206.83b929be.chunk.js",
     "static/media/tendencias-diseno-web-2025.jpg": "/static/media/tendencias-diseno-web-2025.cab3d1e4082b9eae398f.jpg",
+    "static/media/ofuscacion-de-enlaces-posicionamiento-seo.jpg": "/static/media/ofuscacion-de-enlaces-posicionamiento-seo.bb67361adc7df34b0566.jpg",
     "static/media/fundamentos-basicos-de-la-programacion.jpg": "/static/media/fundamentos-basicos-de-la-programacion.b9e437ac369df9dd6cfa.jpg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.6878d55e3615ccf40c38.svg",
     "static/media/guia-iniciarse-wordpress-elementor.jpg": "/static/media/guia-iniciarse-wordpress-elementor.ab0099cc101f9efcd89d.jpg",
@@ -35,6 +36,6 @@
   },
   "entrypoints": [
     "static/css/main.73592194.css",
-    "static/js/main.89774796.js"
+    "static/js/main.d05e09d5.js"
   ]
 }
