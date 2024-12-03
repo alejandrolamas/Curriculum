@@ -5,6 +5,7 @@ import img3 from "../assets/img/blog/guia-iniciarse-wordpress-elementor.jpg";
 import img4 from "../assets/img/blog/tailwind.png";
 import img5 from "../assets/img/blog/error-403-forbidden.png";
 import img6 from "../assets/img/blog/ofuscacion-de-enlaces-posicionamiento-seo.jpg";
+import img7 from "../assets/img/blog/glosario-sem.jpg";
 
 const blogsData = [
   {
@@ -533,7 +534,63 @@ define('CONCATENATE_SCRIPTS', false);
         text: "La ofuscación de enlaces puede ofrecer ventajas en ciertos escenarios, pero sus desventajas en términos de SEO, especialmente a la luz de las últimas actualizaciones del algoritmo de Google, la convierten en una práctica que debe manejarse con precaución. Es fundamental enfocarse en la transparencia, la calidad del contenido y adherirse a las mejores prácticas recomendadas para asegurar un posicionamiento favorable en los resultados de búsqueda.",
       },
     ],
+  }, {
+    id: 7,
+    img: img7, 
+    slug: "glosario-de-terminos-sem",
+    title: "Glosario de términos relacionados con SEM",
+    commentor: "Alejandro Lamas",
+    date: "3 Diciembre 2024",
+    tag: "SEM, Marketing Digital, Glosario",
+    description1:
+      "El marketing en motores de búsqueda (SEM) es una pieza clave en el ecosistema del marketing digital. Este glosario te ayudará a comprender los términos esenciales.",
+    description2:
+      "Desde conceptos básicos hasta términos más avanzados, esta guía es ideal para quienes buscan adentrarse en el mundo del SEM y maximizar sus campañas publicitarias.",
+    description3:
+      "Explora este glosario de términos relacionados con SEM y domina el lenguaje del marketing en motores de búsqueda.",
+    content: [
+      {
+        sectionTitle: "¿Qué es SEM?",
+        text: [
+          "El SEM (Search Engine Marketing) es una estrategia de marketing digital que se centra en aumentar la visibilidad de un sitio web en las páginas de resultados de los motores de búsqueda (SERP) a través de anuncios pagados.",
+          "El objetivo principal del SEM es dirigir tráfico de calidad a un sitio web, generando conversiones y aumentando el retorno de inversión (ROI).",
+        ],
+      },
+      {
+        sectionTitle: "Glosario de términos esenciales en SEM",
+        list: [
+          "**Ad Rank:** El puntaje que determina la posición de un anuncio en los resultados de búsqueda. Se calcula considerando la oferta, la calidad del anuncio y el impacto esperado de las extensiones y otros factores.",
+          "**CTR (Click-Through Rate):** Es la relación entre el número de clics en un anuncio y el número de impresiones, expresada como un porcentaje. Un CTR alto indica que el anuncio es relevante para la audiencia.",
+          "**CPC (Coste por Clic):** El costo que se paga cada vez que un usuario hace clic en un anuncio. Puede ser fijo o determinado por un modelo de subasta.",
+          "**Palabras clave (Keywords):** Los términos que los usuarios escriben en los motores de búsqueda y que activan la aparición de los anuncios. Pueden ser de concordancia amplia, exacta o de frase.",
+          "**Landing Page:** La página a la que los usuarios son dirigidos después de hacer clic en un anuncio. Una landing page optimizada es crucial para maximizar las conversiones.",
+          "**Quality Score:** Una métrica de Google Ads que evalúa la relevancia de un anuncio, la experiencia en la landing page y el CTR esperado. Un Quality Score alto reduce los costos y mejora la posición del anuncio.",
+          "**Impresiones:** El número de veces que un anuncio se muestra en los resultados de búsqueda, independientemente de si se hace clic en él.",
+          "**ROAS (Return on Advertising Spend):** Una métrica que mide la efectividad de una campaña publicitaria al comparar los ingresos generados con el costo de los anuncios.",
+          "**Extensiones de anuncio:** Información adicional que se puede añadir a los anuncios, como número de teléfono, enlaces a secciones específicas del sitio o ubicación. Mejoran la visibilidad y el CTR.",
+          "**Remarketing:** Una estrategia que muestra anuncios a usuarios que previamente interactuaron con un sitio web o aplicación, incentivando el retorno y la conversión.",
+        ],
+      },
+      {
+        sectionTitle: "Estrategias clave para maximizar el SEM",
+        list: [
+          "**Selección de palabras clave relevantes:** Investiga términos que coincidan con la intención de búsqueda de tu audiencia. Herramientas como Google Keyword Planner pueden ser de gran ayuda.",
+          "**Optimización de landing pages:** Asegúrate de que la experiencia de usuario sea fluida, con un diseño claro, tiempos de carga rápidos y un llamado a la acción efectivo.",
+          "**Segmentación precisa:** Define a quién quieres llegar mediante opciones como la ubicación geográfica, los intereses y los dispositivos utilizados.",
+          "**Monitoreo y ajuste constante:** Analiza métricas clave como el CTR, el Quality Score y las conversiones. Ajusta las ofertas, los anuncios y las palabras clave según el rendimiento.",
+          "**A/B Testing:** Experimenta con diferentes versiones de anuncios y páginas de destino para identificar cuáles funcionan mejor.",
+        ],
+      },
+      {
+        sectionTitle: "Conclusión",
+        text: [
+          "El SEM es una herramienta poderosa para alcanzar objetivos de marketing digital de manera rápida y eficiente. Sin embargo, su efectividad depende del entendimiento y la aplicación de conceptos clave.",
+          "Este glosario te proporciona una base sólida para empezar a navegar el mundo del SEM con confianza. Recuerda que el éxito en SEM no solo radica en la inversión, sino también en el análisis continuo y la optimización estratégica.",
+        ],
+      },
+    ],
   }
+  
   
 ];
 
