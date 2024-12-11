@@ -9,6 +9,9 @@ import Social from "../components/Social";
 import Blog from "../components/blog/Blog";
 import { useLocation } from "react-router-dom";
 import ReactGA from 'react-ga4';
+import { Helmet } from "react-helmet";
+import imgDefault from "../assets/img/blog/default.jpg";
+
 ReactGA.initialize('G-YGV4QPF6XH');
 
 const menuItem = [
@@ -22,6 +25,16 @@ const menuItem = [
 const HomeDark = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(0);
+
+  const firstImage =  imgDefault;
+
+  const titleMap = [
+    "Inicio | Alejandro Lamas",
+    "Currículum | Alejandro Lamas",
+    "Portfolio | Alejandro Lamas",
+    "Contacto | Alejandro Lamas",
+    "Blog | Alejandro Lamas",
+  ];
 
   // Cambiar la pestaña activa según el hash en la URL
   useEffect(() => {
@@ -55,6 +68,12 @@ const HomeDark = () => {
 
   return (
     <div className="yellow">
+      <Helmet>
+        <title>{titleMap[activeTab]}</title>
+        <meta property="og:title" content={titleMap} />
+        <meta property="og:image" content={firstImage} />
+        <meta property="og:type" content="page" />
+      </Helmet>
       <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
         <div className="header">
           <TabList className="icon-menu revealator-slideup revealator-once revealator-delay1">

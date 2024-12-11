@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.73592194.css",
-    "main.js": "/static/js/main.39830e29.js",
+    "main.js": "/static/js/main.0c2ba91e.js",
     "static/js/206.83b929be.chunk.js": "/static/js/206.83b929be.chunk.js",
     "static/media/comparativa-mejores-ia-2025.jpg": "/static/media/comparativa-mejores-ia-2025.bee415fdb920404637f1.jpg",
+    "static/media/default.jpg": "/static/media/default.b0402e52662b4759dd24.jpg",
     "static/media/canibalizacion-seo-contenido-duplicado.jpg": "/static/media/canibalizacion-seo-contenido-duplicado.50995eae818f0d68b71d.jpg",
     "static/media/tendencias-diseno-web-2025.jpg": "/static/media/tendencias-diseno-web-2025.1d438d605207d591f729.jpg",
     "static/media/fundamentos-basicos-de-la-programacion.jpg": "/static/media/fundamentos-basicos-de-la-programacion.c2f3a392d496257eeb37.jpg",
@@ -37,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.73592194.css",
-    "static/js/main.39830e29.js"
+    "static/js/main.0c2ba91e.js"
   ]
 }

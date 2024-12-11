@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import UseData from "../../Hooks/UseData";
 import CodeBlock from "../../components/CodeBlock"; // Importar el componente CodeBlock
 import HeaderMenu from "../HeaderMenu";
+import NotFound from "../../views/NotFound";
+import imgDefault from "../../assets/img/blog/default.jpg";
 
 // Función para procesar texto y convertir **texto** en <strong>texto</strong>
 const parseTextWithBold = (text) => {
@@ -36,11 +39,21 @@ const Blog = () => {
     const blog = blogsData.find((item) => item.slug === slug);
 
     if (!blog) {
-      return <div>Publicación no encontrada</div>;
+      return <NotFound />;
     }
+
+    const firstImage = blog.img || imgDefault;
 
     return (
       <div className="yellow">
+        <Helmet>
+          <title>{blog.title} | Alejandro Lamas</title>
+          <meta name="description" content={blog.description1} />
+          <meta property="og:title" content={blog.title} />
+          <meta property="og:image" content={firstImage} />
+          <meta property="og:url" content={`https://alejandrolamas.es${slug}`} />
+          <meta property="og:type" content="article" />
+        </Helmet>
         <HeaderMenu activeTab={4} />
         {/* Contenedor de la imagen, título y subtítulo */}
         <div className="image-container" style={{ position: "relative", height: "40vh", width: "100%" }}>

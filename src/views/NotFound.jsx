@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import image404 from "../assets/img/404.jpg";
+import { Helmet } from "react-helmet";
 
 const NotFound = () => {
   return (
     <div className="error_page">
+      <Helmet>
+        <title>Página no encontrada | Alejandro Lamas</title>
+      </Helmet>
       <div
         className="hero bg-image"
         style={{
