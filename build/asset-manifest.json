@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.336110d8.css",
-    "main.js": "/static/js/main.4f732327.js",
+    "main.css": "/static/css/main.73592194.css",
+    "main.js": "/static/js/main.39830e29.js",
     "static/js/206.83b929be.chunk.js": "/static/js/206.83b929be.chunk.js",
+    "static/media/comparativa-mejores-ia-2025.jpg": "/static/media/comparativa-mejores-ia-2025.bee415fdb920404637f1.jpg",
     "static/media/canibalizacion-seo-contenido-duplicado.jpg": "/static/media/canibalizacion-seo-contenido-duplicado.50995eae818f0d68b71d.jpg",
     "static/media/tendencias-diseno-web-2025.jpg": "/static/media/tendencias-diseno-web-2025.1d438d605207d591f729.jpg",
     "static/media/fundamentos-basicos-de-la-programacion.jpg": "/static/media/fundamentos-basicos-de-la-programacion.c2f3a392d496257eeb37.jpg",
     "static/media/ofuscacion-de-enlaces-posicionamiento-seo.jpg": "/static/media/ofuscacion-de-enlaces-posicionamiento-seo.f7839e24da18391df628.jpg",
     "static/media/glosario-sem.jpg": "/static/media/glosario-sem.893c5d51731add30b748.jpg",
-    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.6878d55e3615ccf40c38.svg",
     "static/media/guia-iniciarse-wordpress-elementor.jpg": "/static/media/guia-iniciarse-wordpress-elementor.f3400a337cfc8d35a4e8.jpg",
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
@@ -30,12 +31,12 @@
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/cancel.svg": "/static/media/cancel.5bec4f69e1bbfff50fdfacd4eaff052a.svg",
+    "static/media/cancel.svg": "/static/media/cancel.17825c74c3c6b6934429010ee3f913fd.svg",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.336110d8.css",
-    "static/js/main.4f732327.js"
+    "static/css/main.73592194.css",
+    "static/js/main.39830e29.js"
   ]
 }

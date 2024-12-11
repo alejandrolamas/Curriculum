@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import AnimatedCursor from "react-animated-cursor";
 import { ToastContainer } from "react-toastify";
+import ReactGA from 'react-ga4';
 
 const App = () => {
   // this for animation
@@ -12,6 +13,10 @@ const App = () => {
     AOS.init({
       duration: 1200,
     });
+  }, []);
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   }, []);
 
   return (

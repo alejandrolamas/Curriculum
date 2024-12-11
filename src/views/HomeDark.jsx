@@ -8,6 +8,8 @@ import Contact from "../components/Contact";
 import Social from "../components/Social";
 import Blog from "../components/blog/Blog";
 import { useLocation } from "react-router-dom";
+import ReactGA from 'react-ga4';
+ReactGA.initialize('G-YGV4QPF6XH');
 
 const menuItem = [
   { icon: "fa-home", menuName: "Inicio" },
