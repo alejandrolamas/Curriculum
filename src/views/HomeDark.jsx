@@ -16,8 +16,8 @@ ReactGA.initialize('G-YGV4QPF6XH');
 
 const menuItem = [
   { icon: "fa-home", menuName: "Inicio" },
-  { icon: "fa-user", menuName: "Currículum" },
-  { icon: "fa-briefcase", menuName: "Portfolio" },
+  { icon: "fa-user", menuName: "Perfil" },
+  { icon: "fa-briefcase", menuName: "Proyectos" },
   { icon: "fa-envelope-open", menuName: "Contacto" },
   { icon: "fa-comments", menuName: "Blog" },
 ];
@@ -26,17 +26,16 @@ const HomeDark = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(0);
 
-  const firstImage =  imgDefault;
+  const firstImage = imgDefault;
 
   const titleMap = [
     "Inicio | Alejandro Lamas",
-    "Currículum | Alejandro Lamas",
-    "Portfolio | Alejandro Lamas",
+    "Perfil Profesional | Alejandro Lamas",
+    "Proyectos | Alejandro Lamas",
     "Contacto | Alejandro Lamas",
     "Blog | Alejandro Lamas",
   ];
 
-  // Cambiar la pestaña activa según el hash en la URL
   useEffect(() => {
     const hash = window.location.hash;
     const tabIndex = {
@@ -52,25 +51,25 @@ const HomeDark = () => {
   const handleTabChange = (index) => {
     setActiveTab(index);
     const hashList = ["#inicio", "#curriculum", "#portfolio", "#contacto", "#blog"];
-    window.history.replaceState(null, null, hashList[index]); // Cambia el hash en la URL
-    window.scrollTo(0, 0); // Forzar el scroll al inicio de la págin
+    window.history.replaceState(null, null, hashList[index]);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const tab = params.get("tab");
     if (tab === "blog") {
-      setActiveTab(4); // Cambia al índice de la pestaña del Blog
+      setActiveTab(4);
     }
   }, [location]);
-  
+
   document.querySelector("body").classList.remove("rtl");
 
   return (
     <div className="yellow">
       <Helmet>
         <title>{titleMap[activeTab]}</title>
-        <meta property="og:title" content={titleMap} />
+        <meta property="og:title" content={titleMap[activeTab]} />
         <meta property="og:image" content={firstImage} />
         <meta property="og:type" content="page" />
       </Helmet>
@@ -103,9 +102,9 @@ const HomeDark = () => {
             <div data-aos="fade-up" data-aos-duration="1200">
               <div className="title-section text-left text-sm-center">
                 <h1>
-                  SOBRE <span>MI</span>
+                  PERFIL <span>PROFESIONAL</span>
                 </h1>
-                <span className="title-bg">SOBRE MI</span>
+                <span className="title-bg">PERFIL</span>
               </div>
               <Index />
             </div>
@@ -119,7 +118,7 @@ const HomeDark = () => {
               data-aos-duration="1200"
             >
               <h1>
-                ALGUNOS DE MIS <span>TRABAJOS</span>
+                PROYECTOS <span>DESTACADOS</span>
               </h1>
               <span className="title-bg">PORTFOLIO</span>
             </div>
@@ -134,21 +133,18 @@ const HomeDark = () => {
               data-aos-duration="1200"
             >
               <h1>
-                CUENTA <span>CONMIGO</span>
+                ¿TRABAJAMOS <span>JUNTOS?</span>
               </h1>
-              <span className="title-bg">¿HABLAMOS?</span>
+              <span className="title-bg">CONTACTO</span>
             </div>
             <div className="container" data-aos="fade-up" data-aos-duration="1200">
               <div className="row">
                 <div className="col-12 col-lg-4">
                   <h3 className="text-uppercase custom-title mb-0 ft-wt-600 pb-3">
-                    No seas tímido/a!
+                    Hablemos sin compromiso
                   </h3>
                   <p className="open-sans-font mb-4">
-                    Siéntete libre de ponerte en contacto conmigo. Total, si has
-                    llegado hasta aquí, igual es que te interesa contratarme,
-                    ¿no? Recuerda que estoy abierto a nuevos proyectos, ideas y
-                    oportunidades. Así que dale caña al formulario y hablemos 😉
+                    Estoy abierto a nuevos retos, colaboraciones y proyectos donde pueda aportar valor con mi experiencia en desarrollo full stack, gestión de proyectos y liderazgo técnico. Si crees que puedo encajar en tu equipo o necesitas ayuda profesional, no dudes en contactarme.
                   </p>
                   <Address />
                   <Social />
@@ -168,9 +164,9 @@ const HomeDark = () => {
               data-aos-duration="1200"
             >
               <h1>
-                MI <span>BLOG</span>
+                REFLEXIONES Y <span>APRENDIZAJES</span>
               </h1>
-              <span className="title-bg">posts</span>
+              <span className="title-bg">BLOG</span>
             </div>
             <div className="container" data-aos="fade-up" data-aos-duration="1200">
               <Blog />

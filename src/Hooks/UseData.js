@@ -8,6 +8,9 @@ import img6 from "../assets/img/blog/ofuscacion-de-enlaces-posicionamiento-seo.j
 import img7 from "../assets/img/blog/glosario-sem.jpg";
 import img8 from "../assets/img/blog/canibalizacion-seo-contenido-duplicado.jpg";
 import img9 from "../assets/img/blog/comparativa-mejores-ia-2025.jpg";
+import img10 from "../assets/img/blog/nextjs_tailwind.jpg";
+import img11 from "../assets/img/blog/mongoose.png";
+import img12 from "../assets/img/blog/nodemailer.jpg";
 
 const blogsData = [
   {
@@ -741,10 +744,318 @@ define('CONCATENATE_SCRIPTS', false);
         ],
       },
     ],
+  }, {
+    id: 10,
+    img: img10,
+    slug: "crear-web-nextjs-tailwind-desde-cero",
+    title: "Crea tu primera web con Next.js 13 + Tailwind CSS (sin morir en el intento)",
+    commentor: "Alejandro Lamas",
+    date: "9 Julio 2025",
+    tag: "Next.js, Tailwind CSS, tutorial, desarrollo web, React",
+    description1:
+      "¿Te suena que Next.js es la niña bonita de React pero te da vértigo empezar? Tranquilo, aquí no dejamos a nadie atrás. Vamos a levantar una web completita —inicio, servicios, blog dinámico y contacto— explicando cada comando como si fuera tu primer día.",
+    description2:
+      "Repasaremos paso a paso la instalación, la estructura de carpetas y cómo Tailwind te ahorra dolores de cabeza con el CSS. Además, control de versiones, despliegue en Vercel y algún truco de productividad.",
+    description3:
+      "Cuando termines esta guía tendrás un proyecto base robusto listo para presumir en GitHub (o para ese cliente que no para de pedir presupuesto).",
+    content: [
+      {
+        sectionTitle: "0. ¿Por qué Next.js + Tailwind?",
+        text: [
+          "➡️ **Next.js** es un framework de React que te da en la misma caja renderizado en el servidor (SSR), generación estática, enrutado sencillo y optimización automática. En cristiano: tu web carga más rápido y posiciona mejor en Google.",
+          "➡️ **Tailwind CSS** sigue la filosofía utility‑first: escribes clases pequeñas que hacen una sola cosa (margen, color, flex, etc.) y las combinas. Resultado: CSS limpito, sin cascadas locas y sin ‘!important’ por todas partes.",
+          "Juntos te permiten prototipar a la velocidad del rayo sin sacrificar rendimiento ni mantenimiento.",
+        ],
+      },
+      {
+        sectionTitle: "1. Requisitos previos (y cómo instalarlos si no los tienes)",
+        list: [
+          "✅ **Node 18 o superior** → Baja el LTS desde nodejs.org y sigue el instalador.",
+          "✅ **Git** → En Windows instalas Git Bash; en macOS viene con Xcode‑CLI; en Linux está en tu gestor de paquetes.",
+          "✅ **Editor** → VS Code + extensiones Prettier (formateo), ESLint (calidad) y Tailwind CSS IntelliSense (autocompletado).",
+        ],
+      },
+      {
+        sectionTitle: "2. Crear proyecto y ponerlo bonito con Tailwind",
+        text: [
+          "Abrimos terminal y tecleo el comando mágico. Atención a la bandera `--app`: usamos el nuevo App Router de Next 13.",
+        ],
+        code: `npx create-next-app@latest my-web --ts --eslint --app --tailwind=false\ncd my-web\npnpm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p`,
+        textAfterCode: [
+          "¿Por qué `--tailwind=false`? Porque prefiero configurarlo yo mismo paso a paso para que entiendas qué hace cada archivo.",
+          "El último comando crea `tailwind.config.js` y `postcss.config.js`. No toques PostCSS; en Tailwind añade las rutas para que escanee componentes y páginas:",
+        ],
+        codeAfterText: `// tailwind.config.js\nmodule.exports = {\n  content: [\n    "./app/**/*.{js,ts,jsx,tsx}",\n    "./components/**/*.{js,ts,jsx,tsx}",\n  ],\n  theme: { extend: {} },\n  plugins: [],\n};`,
+      },
+      {
+        sectionTitle: "3. Entender la nueva estructura de Next 13 (App Router)",
+        text: [
+          "En lugar de /pages, ahora tenemos carpeta /app. Cada subcarpeta es una ruta. Un archivo page.tsx dentro se renderiza cuando visitas esa URL.",
+          "Crea esta jerarquía mínima:",
+        ],
+        code: `app/\n├─ layout.tsx\n├─ page.tsx            // Inicio\n├─ servicios/\n│  ├─ page.tsx         // Listado de servicios\n│  └─ [slug]/page.tsx  // Detalle dinámico\n├─ blog/\n│  ├─ page.tsx         // Índice\n│  └─ [slug]/page.tsx  // Post\n└─ contacto/page.tsx   // Formulario`,
+        textAfterCode: [
+          "El archivo layout.tsx envuelve todas las páginas (Navbar, Footer, meta). El [slug] entre corchetes indica ruta dinámica (igual que [id] en React Router).",
+        ],
+      },
+      {
+        sectionTitle: "4. Layout global paso a paso",
+        code: `// app/layout.tsx\nimport \"./globals.css\";\nimport { Inter } from \"next/font/google\";\nimport Navbar from \"@/components/Navbar\";\nimport Footer from \"@/components/Footer\";\n\nexport const metadata = { title: \"Mi Web\", description: \"Demo Next.js + Tailwind\" };\nconst inter = Inter({ subsets: [\"latin\"] });\n\nexport default function Root({ children }: { children: React.ReactNode }) {\n  return (\n    <html lang=\"es\">\n      <body className={inter.className + \" bg-gray-50 text-gray-800\"}>\n        <Navbar />\n        <main className=\"container mx-auto px-4 py-8\">{children}</main>\n        <Footer />\n      </body>\n    </html>\n  );\n}`,
+        textAfterCode: [
+          "Cada vez que cambies algo en Layout, todas las páginas se recargan (hot‑reload). Tailwind te deja usar utilidades como mx-auto (centrar), px-4 (padding horizontal 1rem) sin abrir un archivo CSS.",
+        ],
+      },
+      {
+        sectionTitle: "5. Construir la Home como Lego (componentes reutilizables)",
+        text: [
+          "Crea un banner hero con fondo gradiente y CTA, una sección de servicios (cards), testimonios y llamada a la acción final. Cada parte es un componente en components/.",
+        ],
+        code: `// components/ServiceCard.tsx\nexport default function ServiceCard({ title, desc, href }) {\n  return (\n    <a href={href} className=\"block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition\">\n      <h3 className=\"text-lg font-semibold mb-2\">{title}</h3>\n      <p className=\"text-sm text-gray-600\">{desc}</p>\n    </a>\n  );\n}`,
+      },
+      {
+        sectionTitle: "6. Routing dinámico para cada servicio (¡sin configurar nada extra!)",
+        text: [
+          "Next genera HTML estático con generateStaticParams(). Crea un array de slugs y él hace el resto. Ventaja: velocidad y SEO de 10.",
+        ],
+      },
+      {
+        sectionTitle: "7. Blog con MDX explicado para humanos",
+        list: [
+          "Instala @next/mdx → te permite escribir posts en .mdx (Markdown + JSX).",
+          "Coloca tus posts en /content/blog/mi‑post.mdx. Cada archivo exporta frontMatter (título, fecha, tags).",
+          "En blog/[slug]/page.tsx usa import fs/promises para leer el mdx y compileMDX para convertirlo a React.",
+        ],
+      },
+      {
+        sectionTitle: "8. Formulario de contacto básico (sin base de datos todavía)",
+        text: [
+          "Creamos estado con useState, manejamos onChange y hacemos fetch('/api/contact'). Por ahora imprime en consola para verificar que llega.",
+        ],
+      },
+      {
+        sectionTitle: "9. Scripts npm y cómo usarlos (qué hace cada uno)",
+        list: [
+          "dev ➜ Levanta servidor en localhost:3000 con recarga caliente.",
+          "build ➜ Compila para producción: minifica, genera routes estáticas.",
+          "start ➜ Lanza el build en Node. Útil si despliegas en VPS.",
+          "lint ➜ Revisa tu código con ESLint + reglas Next: te evita sustos.",
+        ],
+      },
+      {
+        sectionTitle: "10. Despliegue gratis en Vercel (3 clics de verdad)",
+        text: [
+          "1. Sube tu repo a GitHub.",
+          "2. En vercel.com importas proyecto ➜ detecta Next automáticamente.",
+          "3. Configura variables de entorno (si las hay) y ¡deploy! Cada push a main genera preview.",
+        ],
+      },
+      {
+        sectionTitle: "11. Checklist final",
+        list: [
+          "☑️ Repo con README claro",
+          "☑️ Enlaces de navegación funcionando",
+          "☑️ Imágenes optimizadas (next/image)",
+          "☑️ PageSpeed > 90 en móvil",
+        ],
+      },
+      {
+        sectionTitle: "Conclusión",
+        text: [
+          "Acabas de crear una web moderna, escalable y lista para recibir base de datos. En la siguiente entrega añadiremos MongoDB y Mongoose para guardar datos reales. ¡Buen trabajo!",
+        ],
+      },
+    ],
+  }, {
+  id: 11,
+  img: img11,
+  slug: "mongodb-mongoose-integracion-nextjs",
+  title: "MongoDB + Mongoose paso a paso: ponle base de datos a tu web Next.js",
+  commentor: "Alejandro Lamas",
+  date: "16 Julio 2025",
+  tag: "MongoDB, Mongoose, NoSQL, Next.js, tutorial",
+  description1:
+    "¿Recuerdas la web estática que levantamos con Next.js y Tailwind? Hoy le daremos **memoria permanente**: aprenderás a conectar con MongoDB y a manejar datos con Mongoose como si fuera una charla entre colegas.",
+  description2:
+    "Partiremos de cero –qué es NoSQL, cómo abrir una cuenta gratuita en Atlas, instalar dependencias, crear esquemas y exponer endpoints API–, todo explicado sin prisas y con ejemplos que funcionan tal cual.",
+  description3:
+    "Cuando termines sabrás leer, escribir y mostrar posts de blog desde la base de datos… ¡sin tocar SQL!",
+  content: [
+    {
+      sectionTitle: "0. ¿Qué demonios es NoSQL y por qué debería importarme?",
+      text: [
+        "\uD83E\uDDD0 *NoSQL* significa literalmente ‘Not Only SQL’. Engloba motores donde los datos NO se guardan en tablas fijas con filas/columnas, sino en **documentos** flexibles (JSON/BSON), pares clave‑valor, grafos, etc.",
+        "**MongoDB** es el rey del modelo Document. Cada registro es un objeto JSON (llamado **documento**) dentro de una **colección**. Ventajas rápidas:",
+      ],
+      list: [
+        "📄 Esquema flexible → añade campos nuevos sin migraciones liosas.",
+        "⚡ Lecturas y escrituras veloces.",
+        "↔️ Escala horizontal fácilmente (sharding).",
+      ],
+    },
+    {
+      sectionTitle: "1. Crea tu clúster gratis en MongoDB Atlas (5 minutos de reloj)",
+      list: [
+        "1️⃣ Ve a **cloud.mongodb.com** y regístrate.",
+        "2️⃣ ‘Build a Database’ → elige **Shared Cluster (M0 gratuito)**.",
+        "3️⃣ Selecciona región cercana (por ejemplo `eu‑west‑1`).",
+        "4️⃣ Crea **Database User** (usuario + contraseña).",
+        "5️⃣ En Network Access autoriza tu IP (o `0.0.0.0/0` si es solo dev).",
+        "6️⃣ Copia la *Connection string*: se parece a `mongodb+srv://usuario:contraseña@cluster0.xxxxxx.mongodb.net/?retryWrites=true&w=majority`. Guarda bien esa URL.",
+      ],
+    },
+    {
+      sectionTitle: "2. Instala dependencias y configura variables de entorno",
+      code: `pnpm add mongoose\n# ó npm install mongoose`,
+      textAfterCode: [
+        "Crea un archivo **.env.local** en la raíz del proyecto Next.js y pega:",
+      ],
+      codeAfterText: `MONGODB_URI="mongodb+srv://USUARIO:CONTRASENA@cluster0.xxxxxx.mongodb.net/miweb?retryWrites=true&w=majority"`,
+    },
+    {
+      sectionTitle: "3. Helper de conexión (lib/mongoose.ts)",
+      text: [
+        "Cada vez que Next refresca en modo dev abre un proceso. Sin un helper, abrirías *decenas* de conexiones y Mongo se quejaría. Esta función asegura **una sola conexión global**:",
+      ],
+      code: `import mongoose from 'mongoose';\n\nconst MONGODB_URI = process.env.MONGODB_URI!;\n\nexport async function dbConnect() {\n  if (mongoose.connection.readyState >= 1) return; // Ya estamos conectados\n  return mongoose.connect(MONGODB_URI);\n}`,
+    },
+    {
+      sectionTitle: "4. Diseñando el schema de un Post (models/Post.ts)",
+      text: [
+        "Un **schema** en Mongoose define la forma del documento: campos y tipos. Si el documento es una cookie, el schema es el molde.",
+      ],
+      code: `import { Schema, model, models } from 'mongoose';\n\nconst PostSchema = new Schema({\n  title: { type: String, required: true },\n  slug:  { type: String, required: true, unique: true },\n  content: String,\n  tags:  [String],\n  createdAt: { type: Date, default: Date.now },\n});\n\nexport default models.Post || model('Post', PostSchema);`,
+      textAfterCode: [
+        "> **Tip**: \n> El operador `models.ModelName` evita que Next.js intente compilar el modelo dos veces al hacer hot‑reloading.",
+      ],
+    },
+    {
+      sectionTitle: "5. Crear y probar tu primer documento desde la consola",
+      code: `node -e \"(async ()=>{\n  const { dbConnect } = await import('./lib/mongoose.js');\n  const Post = (await import('./models/Post.js')).default;\n  await dbConnect();\n  const nuevo = await Post.create({ title:'Hola Mongo', slug:'hola-mongo', content:'🚀 Estrenando BD' });\n  console.log(nuevo);\n  process.exit();\n})();\"`,
+      textAfterCode: [
+        "Si ves el objeto impreso con un `_id` gigante ➜ ¡felicidades! Tu clúster ya acepta documentos.",
+      ],
+    },
+    {
+      sectionTitle: "6. Exponer una API Route (app/api/posts/route.ts)",
+      code: `import Post from '@/models/Post';\nimport { dbConnect } from '@/lib/mongoose';\n\n// GET /api/posts\nexport async function GET() {\n  await dbConnect();\n  const posts = await Post.find().sort({ createdAt: -1 });\n  return Response.json(posts);\n}\n\n// POST /api/posts\nexport async function POST(req: Request) {\n  const data = await req.json();\n  await dbConnect();\n  const created = await Post.create(data);\n  return Response.json(created, { status: 201 });\n}`,
+    },
+    {
+      sectionTitle: "7. Consumir la API en la página Blog (app/blog/page.tsx)",
+      code: `export default async function Blog() {\n  const posts = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/posts', { cache: 'no-store' }).then(r => r.json());\n\n  return (\n    <ul className=\"space-y-4\">\n      {posts.map(p => (\n        <li key={p._id}>\n          <a href={\`/blog/\${p.slug}\`} className=\"text-xl text-blue-600 hover:underline\">{p.title}</a>\n        </li>\n      ))}\n    </ul>\n  );\n}`,
+      textAfterCode: [
+        "> Observa cómo escapamos \`${p.slug}\` ➜ `\\${p.slug}` dentro del string literal para que no falle al pegarlo en blogsData.",
+      ],
+    },
+    {
+      sectionTitle: "8. Seed rápido de datos de prueba (scripts/seed.ts)",
+      code: `import 'dotenv/config';\nimport { dbConnect } from '../lib/mongoose';\nimport Post from '../models/Post';\n\nawait dbConnect();\nawait Post.deleteMany();\nawait Post.insertMany([\n  { title:'Next + Mongo', slug:'next-mongo', content:'Contenido demo', tags:['demo','nextjs'] },\n  { title:'Otra entrada', slug:'otra', content:'Más texto', tags:['blog'] },\n]);\nprocess.exit();`,
+    },
+    {
+      sectionTitle: "9. Buenas prácticas de producción",
+      list: [
+        "🔐 Variables sensibles solo en .env.* y en Vercel ➜ `Environment Variables`.",
+        "⚡ Indexa los campos que uses para buscar (slug, tags).",
+        "🦺 Valida entradas en el backend (Joi, Zod).",
+        "🗄️ Crea copias de seguridad programadas en Atlas.",
+      ],
+    },
+    {
+      sectionTitle: "Conclusión",
+      text: [
+        "¡Base de datos operativa! Ahora puedes crear, listar y mostrar artículos reales. En la próxima entrega conectaremos el formulario de contacto para guardar mensajes y disparar correos.",
+      ],
+    },
+  ],
+  }, {
+    id: 12,
+    img: img12,
+    slug: "formulario-contacto-nextjs-mongodb",
+    title: "Formulario de contacto PRO: correos, base de datos y anti‑spam en Next.js",
+    commentor: "Alejandro Lamas",
+    date: "23 Julio 2025",
+    tag: "Next.js, Nodemailer, MongoDB, Mongoose, Zod, reCAPTCHA",
+    description1:
+        "Tu web ya luce genial y muestra posts desde MongoDB. Falta el punto clave: que los visitantes puedan escribirte y que NINGÚN mensaje se pierda en el limbo.",
+    description2:
+        "Construiremos un formulario de contacto completo: validación con Zod, envío de email vía Nodemailer, almacenamiento en MongoDB, reCAPTCHA v3 y un mini‑panel para leer los mensajes.",
+    description3:
+        "Guía sin atajos: entenderás qué hace cada línea de código, por qué se hace y cómo depurar si algo falla.",
+    content: [
+        {
+        sectionTitle: "0. ¿Por qué tomarse el formulario en serio?",
+        list: [
+            "📧 30 % de los leads se pierden por formularios rotos o correos en spam.",
+            "🗃️ Guardar en BD te da respaldo si el SMTP falla.",
+            "📊 Analítica: saber a qué horas llegan más consultas ayuda a tu negocio.",
+        ],
+        },
+        {
+        sectionTitle: "1. Instalar dependencias necesarias",
+        code: `pnpm add nodemailer zod\npnpm add -D @types/nodemailer`,
+        textAfterCode: [
+            "**Nodemailer** envía correos SMTP. **Zod** valida datos en runtime de forma declarativa.",
+        ],
+        },
+        {
+        sectionTitle: "2. Crear el modelo ContactMessage (models/ContactMessage.ts)",
+        code: `import { Schema, model, models } from 'mongoose';\n\nconst ContactSchema = new Schema({\n  name:   { type: String, required: true },\n  email:  { type: String, required: true },\n  message:{ type: String, required: true },\n  createdAt:{ type: Date, default: Date.now },\n  ip:     String,\n});\n\nexport default models.ContactMessage || model('ContactMessage', ContactSchema);`,
+        },
+        {
+        sectionTitle: "3. Configurar Nodemailer (lib/mailer.ts)",
+        code: `import nodemailer from 'nodemailer';\n\nexport const transporter = nodemailer.createTransport({\n  host: process.env.SMTP_HOST,\n  port: 465,\n  secure: true,\n  auth: {\n    user: process.env.SMTP_USER,\n    pass: process.env.SMTP_PASS,\n  },\n});`,
+        textAfterCode: [
+            "Variables SMTP van en .env.local y en Vercel › Settings › Environment.",
+        ],
+        },
+        {
+        sectionTitle: "4. Validar inputs con Zod (schema.ts)",
+        code: `import { z } from 'zod';\n\nexport const contactSchema = z.object({\n  name: z.string().min(2, 'Nombre demasiado corto'),\n  email: z.string().email('Email inválido'),\n  message: z.string().min(10, 'Mensaje muy breve'),\n  token: z.string().optional(), // reCAPTCHA\n});`,
+        },
+        {
+        sectionTitle: "5. API Route POST /api/contact",
+        code: `import { dbConnect } from '@/lib/mongoose';\nimport ContactMessage from '@/models/ContactMessage';\nimport { transporter } from '@/lib/mailer';\nimport { contactSchema } from '@/schema';\n\nexport async function POST(req: Request) {\n  const body = await req.json();\n  const parsed = contactSchema.safeParse(body);\n  if (!parsed.success)\n    return Response.json({ error: 'Datos inválidos' }, { status: 400 });\n\n  // Anti‑spam opcional: verifica reCAPTCHA token en Google\n  if (body.token) {\n    const res = await fetch(\`https://www.google.com/recaptcha/api/siteverify?secret=\${process.env.RECAPTCHA_SECRET}&response=\${body.token}\", { method:'POST' });\n    const score = (await res.json()).score;\n    if (!score || score < 0.5)\n      return Response.json({ error: 'Captcha' }, { status: 400 });\n  }\n\n  await dbConnect();\n  await ContactMessage.create({ ...body, ip: req.headers.get('x-forwarded-for') || '' });\n\n  await transporter.sendMail({\n    from: 'Web <noreply@miweb.com>',\n    to: process.env.CONTACT_TO,\n    subject: 'Nuevo mensaje de contacto',\n    text: \`Nombre: \${body.name}\nEmail: \${body.email}\nMensaje: \${body.message}\`,\n  });\n\n  return Response.json({ ok: true });\n}`,
+        },
+        {
+        sectionTitle: "6. Frontend React con validación y reCAPTCHA (app/contacto/page.tsx)",
+        code: `'use client';\nimport { useState } from 'react';\nimport { contactSchema } from '@/schema';\n\nexport default function Contacto() {\n  const [form, setForm] = useState({ name:'', email:'', message:'' });\n  const [status, setStatus] = useState('idle');\n\n  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });\n\n  async function handleSubmit(e) {\n    e.preventDefault();\n    if (!contactSchema.safeParse(form).success) \n      return alert('Revise los campos');\n\n    // get reCAPTCHA v3 token\n    const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action:'submit' });\n\n    const res = await fetch('/api/contact', {\n      method:'POST',\n      headers:{'Content-Type':'application/json'},\n      body: JSON.stringify({ ...form, token }),\n    });\n    setStatus(res.ok ? 'ok' : 'error');\n  }\n\n  return (\n    <form onSubmit={handleSubmit} className=\"space-y-4 max-w-lg\">\n      {/* Inputs */}\n      <button className=\"btn-primary w-full\">Enviar</button>\n      {status==='ok' && <p className='text-green-600'>Mensaje enviado ✔️</p>}\n      {status==='error' && <p className='text-red-600'>Error al enviar ❌</p>}\n    </form>\n  );\n}`,
+        },
+        {
+        sectionTitle: "7. Mini panel de administración (/admin/mensajes)",
+        text: [
+            "Ruta protegida con Basic Auth en headers. Lista documentos con `ContactMessage.find()` y usa un `<table>` Tailwind (o shadcn/ui DataTable) para ver nombre, email, fecha y botón ‘Responder’.",
+        ],
+        },
+        {
+        sectionTitle: "8. Anti‑spam extra: rate‑limit por IP",
+        code: `// middleware.ts\nimport { NextResponse } from 'next/server';\nimport rateLimit from 'express-rate-limit'; // o un helper propio\n\nexport function middleware(req) {\n  // Aplica límites solo en la ruta /api/contact\n}`,
+        textAfterCode: [
+            "Implementar un rate limiter evita bombardeos desde la misma IP.",
+        ],
+        },
+        {
+        sectionTitle: "9. Probar envíos de correo sin SMTP real (Ethereal)",
+        text: [
+            "Ethereal.email genera cuentas de prueba. Sustituye tus creds SMTP por las de Ethereal y abre el enlace que te devuelve Nodemailer en consola para ver el correo renderizado.",
+        ],
+        },
+        {
+        sectionTitle: "10. Checklist final",
+        list: [
+            "☑️ Validación en frontend y backend",
+            "☑️ Email llega a bandeja de entrada",
+            "☑️ Registro aparece en colección contact_messages",
+            "☑️ reCAPTCHA > 0.5",
+            "☑️ Rate‑limit activo",
+        ],
+        },
+        {
+        sectionTitle: "Conclusión",
+        text: [
+            "¡Ya lo tienes! Un flujo de contacto robusto, seguro y escalable. Combina todo lo aprendido: Next.js App Router, MongoDB, validación y mejores prácticas de seguridad.",
+        ],
+        },
+    ],
   },
-  
-  
-  
 ];
 
 const AllBlogData = () => {

@@ -2,21 +2,15 @@ import React from "react";
 
 const educationContent = [
   {
-    year: "2024 - Actualidad",
+    year: "2024 - 2025",
     degree: "MIA (Master en Inteligencia Artificial en el ámbito de la Empresa)",
     institute: "Universidad Isabel I",
     details: ``,
   },
   {
-    year: "2024 - Actualidad",
+    year: "2024 - 2025",
     degree: "MBA (Master Business Administration)",
     institute: "Universidad Isabel I",
-    details: ``,
-  },
-  {
-    year: "2024 - Actualidad",
-    degree: "Business English Program",
-    institute: "Oxford University",
     details: ``,
   },
   {
@@ -27,7 +21,7 @@ const educationContent = [
   },
   {
     year: "2016 - 2018",
-    degree: "Grado superior en desarrollo de aplicaciones web (DAW)",
+    degree: "Grado Superior en Desarrollo de Aplicaciones Web",
     institute: "IES VIRGEN DE LA PALOMA",
     details: ``,
   }

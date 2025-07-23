@@ -2,13 +2,13 @@ import React from "react";
 
 const achievementsContent = [
   { title: "10", subTitle1: "Años de", subTitle2: "experiencia" },
-  { title: "245", subTitle1: "Desarrollo", subTitle2: "CMS" },
-  { title: "12", subTitle1: "Desarrollo", subTitle2: "Full Stack" },
-  { title: "51", subTitle1: "Campañas", subTitle2: "SEO" },
-  { title: "43", subTitle1: "Campañas", subTitle2: "SEM" },
-  { title: "7", subTitle1: "Diseños", subTitle2: "Corporativos" },
-  { title: "15", subTitle1: "Servidores", subTitle2: "Desplegados" },
-  { title: "∞", subTitle1: "Clientes", subTitle2: "Contentos" },
+  { title: "200", subTitle1: "Proyectos", subTitle2: "web y CMS" },
+  { title: "40", subTitle1: "Desarrollos", subTitle2: "Full Stack" },
+  { title: "50", subTitle1: "Campañas", subTitle2: "SEO & SEM" },
+  { title: "160", subTitle1: "Clientes", subTitle2: "gestionados" },
+  { title: "25", subTitle1: "Servidores", subTitle2: "configurados" },
+  { title: "5", subTitle1: "Equipos", subTitle2: "liderados" },
+  { title: "∞", subTitle1: "Aprendizaje", subTitle2: "constante" },
 ];
 
 const Achievements = () => {

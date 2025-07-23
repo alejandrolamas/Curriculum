@@ -1197,7 +1197,7 @@ body.light .contact .custom-span-contact a {
   cursor: pointer;
   @media screen and (min-width: 1300px) {
     background: #555;
-    min-height: 227px;
+    min-height: auto;
   }
   @media screen and (max-width: 450px) {
     min-height: 218px;

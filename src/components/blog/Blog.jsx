@@ -161,7 +161,7 @@ const Blog = () => {
                   <h3>{item.title}</h3>
                 </div>
                 <div className="entry-content open-sans-font">
-                  <p>{item.description1.slice(0, 100)}...</p>
+                  <p>{item.description1}</p>
                 </div>
                 <div className="entry-meta" style={{paddingTop:"10px"}}>
                   <small style={{color:"#7F8C8D", fontSize:"10px"}}>{item.commentor} - {item.date}</small>

@@ -9,12 +9,13 @@ const heroContent = {
   heroImage: heroImg,
   heroMobileImage: heroImgMobile,
   heroTitleName: "Alejandro Lamas",
-  heroDesignation: "Full Stack Developer & Marketing Specialist",
-  heroDescriptions: `Hola, aún no lo sabes, pero me quieres en tu empresa.\n
-  \nTras más de 10 años de experiencia en el desarrollo de aplicaciones web y marketing digital y tras haber fundado varias empresas, no vamos a engañarnos, la contabilidad no era lo mio. 
-  Pero eh, ya sea gestionando clientes, desarrollando, creando campañas de marketing... he aprendido mucho y he ayudado a muchas empresas a crecer.
-  Si lo que buscas NO es un currito más, sino a alguien que trabaje como si la empresa fuese suya, soy tu hombre 😉`,
-  heroBtn: "Más sobre mi",
+  heroDesignation: "Full Stack Developer & Project Manager",
+  heroDescriptions: `Soy desarrollador full stack con perfil técnico-estratégico, especializado en desarrollo web, gestión de proyectos y marketing digital.
+
+Aporto más de 10 años de experiencia combinando tecnología, liderazgo y orientación a resultados. He trabajado como CTO, fundado y dirigido empresas, y actualmente formo parte del equipo técnico del Consejo General de Colegios de la Profesión Veterinaria de España, liderando el desarrollo de varios proyectos digitales clave.
+
+Mi objetivo profesional es integrarme en un equipo multidisciplinar donde seguir creciendo, compartir conocimiento y aportar valor con todo lo aprendido a lo largo del camino.`,
+  heroBtn: "Más sobre mí",
 };
 
 const Hero = () => {
@@ -29,23 +30,21 @@ const Hero = () => {
         <div
           className="col-lg-4 bg position-fixed d-none d-lg-block"
           style={{
-            backgroundImage: `url(${
-              process.env.PUBLIC_URL + heroContent.heroImage
-            })`,
+            backgroundImage: `url(${process.env.PUBLIC_URL + heroContent.heroImage})`,
           }}
         ></div>
-        <div className="col-12 col-lg-8 offset-lg-4 home-details  text-center text-lg-start">
+        <div className="col-12 col-lg-8 offset-lg-4 home-details text-center text-lg-start">
           <div>
             <img
               src={heroContent.heroMobileImage}
               className="img-fluid main-img-mobile d-sm-block d-lg-none"
-              alt="hero man"
+              alt="hero portrait"
             />
             <h1 className="text-uppercase poppins-font">
               Soy {heroContent.heroTitleName}.
               <span>{heroContent.heroDesignation}</span>
             </h1>
-            <p className="open-sans-font">{heroContent.heroDescriptions}</p>
+            <p className="open-sans-font white-space-pre-line">{heroContent.heroDescriptions}</p>
             <button className="button" onClick={toggleModalOne}>
               <span className="button-text">{heroContent.heroBtn}</span>
               <span className="button-icon fa fa-arrow-right"></span>
@@ -53,39 +52,33 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* End home-details-container */}
 
-      {/* Start Modal for About More */}
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModalOne}
-        contentLabel="My dialog"
+        contentLabel="Sobre mí"
         className="custom-modal dark hero"
         overlayClassName="custom-overlay dark"
         closeTimeoutMS={500}
       >
         <div>
           <button className="close-modal" onClick={toggleModalOne}>
-            <img src={cancelImg} alt="close icon" />
+            <img src={cancelImg} alt="cerrar" />
           </button>
-          {/* End close icon */}
 
           <div className="box_inner about">
             <div data-aos="fade-up" data-aos-duration="1200">
               <div className="title-section text-left text-sm-center">
                 <h1>
-                  SOBRE <span>MI</span>
+                  SOBRE <span>MÍ</span>
                 </h1>
-                <span className="title-bg">SOBRE MI</span>
+                <span className="title-bg">SOBRE MÍ</span>
               </div>
-              {/* End title */}
               <Index />
             </div>
           </div>
         </div>
-        {/* End modal box news */}
       </Modal>
-      {/* End  Modal for About More */}
     </>
   );
 };
