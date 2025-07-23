@@ -4,7 +4,7 @@ import Education from "./Education";
 import Experience from "./Experience";
 import PersonalInfo from "./PersonalInfo";
 import Skills from "./Skills";
-import cv from "../../assets/pdf/cv _ Alejandro Lamas _ 2024.pdf";
+import cv from "../../assets/pdf/CV _ Alejandro Lamas _ 2025.pdf";
 import heroImgMobile from "../../assets/img/hero/img-mobile.jpg";
 
 const index = () => {
