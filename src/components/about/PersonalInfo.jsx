@@ -2,7 +2,7 @@ import React from "react";
 
 const personalInfoContent = [
   { meta: "Nombre", metaInfo: "Alejandro Lamas" },
-  { meta: "Edad", metaInfo: "28 años" },
+  { meta: "Edad", metaInfo: "29 años" },
   { meta: "Ubicación", metaInfo: "Madrid, España" },
   { meta: "Teléfono", metaInfo: "667894561" },
   { meta: "Idiomas", metaInfo: "Español (nativo), Inglés (C1 escrito y leído, B2 hablado)" },
