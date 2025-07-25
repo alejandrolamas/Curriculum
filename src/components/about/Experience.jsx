@@ -45,7 +45,7 @@ Gestión de incidencias y contacto directo con clientes para tareas de mantenimi
   year: "2015 - Actualidad",
   position: "Desarrollador Autodidacta / Proyectos Personales",
   compnayName: "Alejandro Lamas",
-  details: `Desde antes incluso de comenzar mi formación reglada, he desarrollado proyectos personales para profundizar en nuevas tecnologías y resolver problemas reales. He aprendido de forma autodidacta lenguajes y frameworks como Python, Node.js, React, TypeScript, así como arquitectura de servidores y despliegue de entornos productivos.
+  details: `Desde antes de comenzar mi formación reglada, he desarrollado proyectos personales para profundizar en nuevas tecnologías y resolver problemas reales. He aprendido de forma autodidacta lenguajes y frameworks como Python, Node.js, React, TypeScript, así como arquitectura de servidores y despliegue de entornos productivos.
 
 Experiencia en configuración y mantenimiento de servidores en CentOS, Ubuntu, RedHat y entornos Windows (IIS). Diseño de arquitectura full stack, control de versiones con Git, integración de bases de datos relacionales y NoSQL, y uso de servicios cloud como AWS, Azure, Vercel y Netlify.
 
