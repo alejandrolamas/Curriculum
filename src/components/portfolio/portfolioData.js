@@ -1,6 +1,6 @@
-import Image1 from "../../assets/img/portfolio/miguel-rios.jpg";
-import Image2 from "../../assets/img/portfolio/mecano.jpg";
-import Image3 from "../../assets/img/portfolio/bulldog.jpg";
+import Image1 from "../../assets/img/portfolio/atika.jpg";
+import Image2 from "../../assets/img/portfolio/megara.jpg";
+import Image3 from "../../assets/img/portfolio/evie.jpg";
 import Image4 from "../../assets/img/portfolio/fleek.jpg";
 import Image5 from "../../assets/img/portfolio/juan-vidal.jpg";
 import Image6 from "../../assets/img/portfolio/chrisar.jpg";
@@ -10,6 +10,22 @@ import Image9 from "../../assets/img/portfolio/ortega-gasset.jpg";
 
 const PortfolioData = [
   {
+    id: 5,
+    type: "Desarrollo web + Diseño + Marketing",
+    image: Image5,
+    tag: ["desarrollo", "diseño", "marketing"],
+    delayAnimation: "100",
+    modalDetails: [
+      {
+        project: "Desarrollo web Shopify para el prestigioso diseñador de moda Juan Vidal",
+        client: "Juan Vidal",
+        language: "Shopify, Liquid, Figma, Photoshop, Illustrator, Google Ads, META",
+        preview: "juan-vidal.com",
+        link: "https://juan-vidal.com/",
+      },
+    ],
+  },
+  {
     id: 1,
     type: "Desarrollo web",
     image: Image1,
@@ -18,42 +34,26 @@ const PortfolioData = [
     modalDetails: [
       {
         project: "Desarrollo de página web corporativa",
-        client: "Miguel Rios",
+        client: "Atika Jewels",
         language: "Wordpress",
-        preview: "miguel-rios.com",
-        link: "https://miguel-rios.com/",
+        preview: "atikajewels.com",
+        link: "https://www.atikajewels.com/",
       },
     ],
   },
   {
-    id: 2,
-    type: "Desarrollo web + Marketing",
-    image: Image2,
-    tag: ["desarrollo", "marketing", "diseño"],
+    id: 8,
+    type: "Desarrollo web",
+    image: Image8,
+    tag: ["desarrollo", "diseño"],
     delayAnimation: "100",
     modalDetails: [
       {
-        project: "Desarrollo web para un evento musical dedicado a Mecano",
-        client: "Producciones Roma",
-        language: "Wordpress, Analytics, Search Console, Google Ads, Tiktok, META",
-        preview: "mecanoexperience.com",
-        link: "https://mecanoexperience.com",
-      },
-    ],
-  },
-  {
-    id: 3,
-    type: "Desarrollo web + Diseño",
-    image: Image3,
-    tag: ["desarrollo", "diseño"],
-    delayAnimation: "200",
-    modalDetails: [
-      {
-        project: "Desarrollo web de suscripción de comida a domicilio",
-        client: "Bulldog Green",
-        language: "Wordpress, PHP, figma, Photoshop, Illustrator",
-        preview: "bulldoggreen.com",
-        link: "https://bulldoggreen.com/",
+        project: "Rediseño web originalmente en WIX y migrado a Wordpress, SEO básico",
+        client: "Levanova",
+        language: "WIX, Wordpress, SEO",
+        preview: "levanova.es",
+        link: "https://levanova.es/",
       },
     ],
   },
@@ -74,18 +74,34 @@ const PortfolioData = [
     ],
   },
   {
-    id: 5,
-    type: "Desarrollo web + Diseño + Marketing",
-    image: Image5,
-    tag: ["desarrollo", "diseño", "marketing"],
-    delayAnimation: "100",
+    id: 3,
+    type: "Desarrollo web + Marketing",
+    image: Image2,
+    tag: ["desarrollo", "marketing"],
+    delayAnimation: "200",
     modalDetails: [
       {
-        project: "Desarrollo web Shopify para el prestigioso diseñador de moda Juan Vidal",
-        client: "Juan Vidal",
-        language: "Shopify, Liquid, Figma, Photoshop, Illustrator, Google Ads, META",
-        preview: "juan-vidal.com",
-        link: "https://juan-vidal.com/",
+        project: "Desarrollo web para una consultora especializada en finanzas, inversiones y planificación",
+        client: "Megara Asesores",
+        language: "Wordpress, Analytics, Search Console, Active Campaign, META, Google Ads",
+        preview: "megaraasesores.com",
+        link: "https://megaraasesores.com",
+      },
+    ],
+  },
+  {
+    id: 2,
+    type: "Desarrollo web + Marketing",
+    image: Image3,
+    tag: ["desarrollo", "marketing"],
+    delayAnimation: "200",
+    modalDetails: [
+      {
+        project: "Desarrollo web para la marca Save Futbol, aula virtual, cursos para padres y entrenadores, especializado en inteligencia emocional y desarrollo personal a través del deporte",
+        client: "EVIE Futbol",
+        language: "Wordpress, Analytics, Search Console, Active Campaign, META, Google Ads",
+        preview: "eviefutbol.com",
+        link: "https://eviefutbol.com",
       },
     ],
   },
@@ -121,22 +137,7 @@ const PortfolioData = [
       },
     ],
   },
-  {
-    id: 8,
-    type: "Desarrollo web",
-    image: Image8,
-    tag: ["desarrollo", "diseño"],
-    delayAnimation: "100",
-    modalDetails: [
-      {
-        project: "Rediseño web originalmente en WIX y migrado a Wordpress, SEO básico",
-        client: "Levanova",
-        language: "WIX, Wordpress, SEO",
-        preview: "levanova.es",
-        link: "https://levanova.es/",
-      },
-    ],
-  },
+  
   {
     id: 9,
     type: "Imagen corporativa + Desarrollo web + Moodle + Marketing",
