@@ -60,21 +60,6 @@ function getTransporter() {
 
 export async function POST(request: Request) {
   try {
-    // Verificar variables de entorno
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.error("SMTP environment variables not configured:", {
-        SMTP_HOST: !!process.env.SMTP_HOST,
-        SMTP_USER: !!process.env.SMTP_USER,
-        SMTP_PASS: !!process.env.SMTP_PASS,
-        SMTP_FROM: !!process.env.SMTP_FROM,
-        CONTACT_EMAIL: !!process.env.CONTACT_EMAIL,
-      });
-      return NextResponse.json(
-        { error: "Error de configuración del servidor. Contacta directamente a hola@alejandrolamas.es" },
-        { status: 500 }
-      );
-    }
-
     // Obtener IP para rate limiting
     const forwarded = request.headers.get("x-forwarded-for");
     const ip = forwarded ? forwarded.split(",")[0] : "unknown";
@@ -238,11 +223,6 @@ Fecha: ${new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' })}
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending email:", error);
-    
-    // Mensaje de error más específico para debugging
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
-    console.error("Error details:", errorMessage);
-    
     return NextResponse.json(
       { error: "Error al enviar el mensaje. Inténtalo de nuevo más tarde." },
       { status: 500 }
