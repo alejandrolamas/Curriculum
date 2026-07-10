@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}
+
+model Profile {
+  id           Int      @id @default(1)
+  name         String
+  role         String
+  tagline      String
+  bio          String
+  location     String
+  email        String
+  phone        String
+  linkedin     String
+  github       String
+  availability String
+  languages    Json
+  stats        Json
+  aptitudes    Json
+  updatedAt    DateTime @updatedAt
+}
+
+model Experience {
+  id         String   @id @default(cuid())
+  role       String
+  company    String
+  start      String
+  end        String?
+  summary    String
+  highlights Json
+  tech       Json
+  accent     String   @default("#c8f31d")
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Education {
+  id          String   @id @default(cuid())
+  degree      String
+  institution String
+  start       String
+  end         String
+  description String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id       String @id @default(cuid())
+  name     String
+  category String
+  level    Int    @default(80)
+  featured Boolean @default(false)
+  order    Int    @default(0)
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  client      String?
+  kind        String
+  description String
+  tech        Json
+  link        String?
+  year        String?
+  featured    Boolean  @default(false)
+  published   Boolean  @default(true)
+  accent      String   @default("#c8f31d")
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String
+  tags        Json
+  readTime    String?
+  featured    Boolean  @default(false)
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  body      String
+  ipHash    String?
+  userAgent String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([ipHash, createdAt])
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model CaptchaChallenge {
+  id         String    @id @default(cuid())
+  nonce      String    @unique
+  ipHash     String
+  difficulty Int
+  createdAt  DateTime  @default(now())
+  expiresAt  DateTime
+  usedAt     DateTime?
+
+  @@index([ipHash, createdAt])
+}

@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+/* ───────────────────────── Design tokens ───────────────────────── */
+:root {
+  --ink: #0e0e10;
+  --ink-2: #141416;
+  --ink-3: #1c1c1f;
+  --bone: #f2efe6;
+  --muted: #8e8e96;
+  --acid: #c8f31d;
+  --violet: #7c5cff;
+  --coral: #ff6b35;
+  --cyan: #00d4ff;
+  --pink: #ff3d81;
+  --line: rgba(242, 239, 230, 0.14);
+  --line-soft: rgba(242, 239, 230, 0.07);
+
+  --font-display: var(--font-syne), sans-serif;
+  --font-body: var(--font-grotesk), sans-serif;
+  --font-mono: var(--font-jetmono), monospace;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-bone: var(--bone);
+  --color-muted: var(--muted);
+  --color-acid: var(--acid);
+  --color-violet: var(--violet);
+  --color-coral: var(--coral);
+  --color-cyan: var(--cyan);
+  --color-pink: var(--pink);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+html {
+  scrollbar-color: var(--ink-3) var(--ink);
+}
+
+body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+/* Custom cursor: hide native on fine pointers when enabled */
+@media (pointer: fine) {
+  body[data-cursor="on"],
+  body[data-cursor="on"] a,
+  body[data-cursor="on"] button,
+  body[data-cursor="on"] [role="button"] {
+    cursor: none;
+  }
+}
+
+/* ───────────────────────── Utilities ───────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Huge outlined display text */
+.text-outline {
+  -webkit-text-stroke: 1.5px var(--bone);
+  color: transparent;
+}
+.text-outline-acid {
+  -webkit-text-stroke: 1.5px var(--acid);
+  color: transparent;
+}
+
+/* Hairline borders */
+.hairline {
+  border: 1px solid var(--line);
+}
+.hairline-t {
+  border-top: 1px solid var(--line);
+}
+.hairline-b {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Mono overline labels */
+.overline-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Acid chip */
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  color: var(--bone);
+  white-space: nowrap;
+}
+
+/* Grain estático (barato: sin animación, sin repaints) */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045;
+}
+
+/* ───────────────────────── Constelación ───────────────────────── */
+
+.planet {
+  --accent: #c8f31d;
+  width: clamp(34px, 6vmin, 56px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 32% 28%,
+    color-mix(in srgb, var(--accent) 80%, white 20%) 0%,
+    color-mix(in srgb, var(--accent) 60%, var(--ink) 40%) 40%,
+    color-mix(in srgb, var(--accent) 16%, var(--ink) 84%) 70%,
+    color-mix(in srgb, var(--accent) 6%, var(--ink) 94%) 100%
+  );
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--accent) 30%, transparent),
+    inset -8px -8px 18px rgba(0, 0, 0, 0.55);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s;
+}
+
+/* anillo estático */
+.planet::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  opacity: 0.45;
+  transition: opacity 0.4s, inset 0.4s;
+}
+
+/* pulso exterior del nodo activo */
+.planet::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  opacity: 0;
+}
+
+.group:hover .planet {
+  transform: scale(1.12);
+}
+
+.planet[data-active] {
+  transform: scale(1.28);
+  box-shadow:
+    0 0 42px color-mix(in srgb, var(--accent) 55%, transparent),
+    inset -8px -8px 18px rgba(0, 0, 0, 0.55);
+}
+.planet[data-active]::after {
+  opacity: 1;
+  inset: -11px;
+}
+.planet[data-active]::before {
+  animation: planet-pulse 2.2s ease-out infinite;
+}
+
+.planet[data-core] {
+  width: clamp(46px, 8vmin, 72px);
+}
+
+@keyframes planet-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+/* Vistas del sistema: hero (texto protagonista), panel, mapa */
+.planet,
+.node-label {
+  transition: opacity 0.6s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-view="hero"] .planet:not([data-core]) {
+  opacity: 0.16;
+}
+[data-view="hero"] .group:hover .planet:not([data-core]) {
+  opacity: 1;
+}
+[data-view="hero"] .node-label {
+  opacity: 0;
+}
+[data-view="hero"] .group:hover .node-label,
+[data-view="hero"] [data-active] + .node-label {
+  opacity: 1;
+}
+
+/* Velo tras el texto del hero */
+.hero-veil {
+  background: radial-gradient(
+    circle,
+    var(--ink) 0%,
+    color-mix(in srgb, var(--ink) 94%, transparent) 28%,
+    color-mix(in srgb, var(--ink) 62%, transparent) 44%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+[data-view="hero"] .hero-veil {
+  opacity: 1;
+}
+
+.hero-block {
+  transition: opacity 0.45s ease;
+}
+
+/* En la entrada: fondo más apagado y texto en blanco puro */
+[data-view] canvas {
+  transition: opacity 0.7s ease;
+}
+[data-view="hero"] canvas {
+  opacity: 0.5;
+}
+.hero-block h1 {
+  color: #ffffff;
+}
+.hero-block .text-outline {
+  -webkit-text-stroke-color: #ffffff;
+}
+.hero-block .hero-tagline {
+  color: #ffffff;
+}
+.hero-block .overline-label {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* En pantallas pequeñas el planeta activo no debe comerse el contenido */
+@media (max-width: 767px) {
+  .planet {
+    width: clamp(28px, 5vmin, 40px);
+  }
+  .planet[data-core] {
+    width: clamp(38px, 7vmin, 54px);
+  }
+  .planet[data-active] {
+    transform: scale(1.12);
+  }
+}
+
+/* Barras de scroll finas en cintas horizontales */
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-3) transparent;
+}
+.panel-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.panel-scroll::-webkit-scrollbar-thumb {
+  background: var(--ink-3);
+  border-radius: 99px;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-speed, 28s) linear infinite;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+/* Link underline sweep */
+.link-sweep {
+  position: relative;
+}
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: var(--acid);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.link-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Blog prose (markdown) */
+.prose-al {
+  line-height: 1.75;
+  color: rgba(242, 239, 230, 0.86);
+}
+.prose-al h2, .prose-al h3 {
+  font-family: var(--font-display);
+  color: var(--bone);
+  margin: 2.2rem 0 0.9rem;
+  line-height: 1.2;
+}
+.prose-al h2 { font-size: 1.6rem; }
+.prose-al h3 { font-size: 1.25rem; }
+.prose-al p { margin: 1.1rem 0; }
+.prose-al strong { color: var(--bone); }
+.prose-al a { color: var(--acid); text-decoration: underline; text-underline-offset: 3px; }
+.prose-al ul, .prose-al ol { margin: 1.1rem 0; padding-left: 1.4rem; }
+.prose-al li { margin: 0.4rem 0; }
+.prose-al li::marker { color: var(--acid); }
+.prose-al code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--ink-3);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 0.12em 0.4em;
+}
+.prose-al pre {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  overflow-x: auto;
+  margin: 1.4rem 0;
+}
+.prose-al pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.prose-al blockquote {
+  border-left: 2px solid var(--acid);
+  padding-left: 1.2rem;
+  color: var(--muted);
+  margin: 1.4rem 0;
+}
+
+/* Admin form controls */
+.field {
+  width: 100%;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--bone);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field:focus {
+  border-color: var(--acid);
+}
+.field::placeholder {
+  color: rgba(142, 142, 150, 0.6);
+}
+
+/* Reduced motion: kill the theatrics */
+@media (prefers-reduced-motion: reduce) {
+  .noise::after, .marquee-track {
+    animation: none !important;
+  }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
